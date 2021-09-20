@@ -25,6 +25,7 @@ namespace Login_FrontEnd
 
             CustomerList = FindViewById<ListView>(Resource.Id.listView1);
             myList = DatabaseManager.GetLoginData();
+            CustomerList.Adapter = new DataAdapter(this, myList);
         }
     }
 }
