@@ -17,6 +17,14 @@ namespace Login_FrontEnd
 {
     public class DatabaseManager
     {
+        public static List<Login> GetLoginData1()
+        {
+            var httpClient = new HttpClient();
+            var response = httpClient.GetStringAsync("http://10.0.2.2:53853/api/Logins");
+            var Login_obj = JsonConvert.DeserializeObject<List<Login>>(response.Result);
+            return Login_obj.ToList();
+        }
+
         public static List<Login> GetLoginData()
         {
             var httpClient = new HttpClient();
